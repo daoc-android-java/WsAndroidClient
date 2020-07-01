@@ -3,7 +3,6 @@ package com.example.wsandroidclient;
 import java.net.URI;
 
 import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.drafts.Draft_17;
 import org.java_websocket.handshake.ServerHandshake;
 
 import android.app.Activity;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
-	WebSocketClient mWs;
+	WebSocketClient wsc;
 	TextView tv;
 	EditText et;
 	
@@ -27,7 +26,7 @@ public class MainActivity extends Activity {
         et = (EditText) findViewById(R.id.msg);
         
 		try {
-			mWs = new WebSocketClient(new URI("ws://10.0.2.2:8080/saludos"), new Draft_17()) {
+			wsc = new WebSocketClient(new URI("ws://10.0.2.2:8080/saludos")) {
 				@Override
 				public void onMessage(final String message) {
 					runOnUiThread(new Runnable() {
@@ -40,12 +39,12 @@ public class MainActivity extends Activity {
 
 				@Override
 				public void onOpen(ServerHandshake handshake) {
-					System.out.println("opened connection");
+					System.out.println("Conexión abierta");
 				}
 
 				@Override
 				public void onClose(int code, String reason, boolean remote) {
-					System.out.println("closed connection: " + reason + code);
+					System.out.println("Conexión cerrada: " + reason + code);
 				}
 
 				@Override
@@ -61,19 +60,19 @@ public class MainActivity extends Activity {
     }
 
     public void conectarWs(View v) {
-    	mWs.connect();
+		wsc.connect();
     }
     
     public void enviarWs(View v) {
     	String msg = et.getText().toString();
-    	mWs.send(msg);
+		wsc.send(msg);
     	tv.append("<= " + msg + "\n");
     }    
     
     @Override
     protected void onDestroy() {
-    	if(mWs != null) {
-    		mWs.close();
+    	if(wsc != null) {
+			wsc.close();
     	}
     	super.onDestroy();
     }
