@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WsAndroidClient.iml" filepath="$PROJECT_DIR$/.idea/modules/WsAndroidClient.iml" group="WsAndroidClient" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="WsAndroidClient/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WsAndroidClient.iml" filepath="$PROJECT_DIR$/.idea/modules/WsAndroidClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WsAndroidClient.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WsAndroidClient.app.iml" />
     </modules>
   </component>
 </project>
